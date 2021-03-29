@@ -33,6 +33,7 @@ curl -X PUT $COUCHDB"_node/_local/_config/httpd/enable_cors" -u $AUTH -d '"true"
 
 # allow origin from dashboard on https://bbrf.me
 curl -X PUT $COUCHDB"_node/_local/_config/cors/origins" -u $AUTH -d '"https://bbrf.me"' -s > /dev/null
+curl -X PUT $COUCHDB"_node/_local/_config/cors/origins" -u $AUTH -d '"http://'$(curl -sL ifconfig.me)'"' -s > /dev/null
 curl -X PUT $COUCHDB"_node/_local/_config/cors/credentials" -u $AUTH -d '"true"' -s > /dev/null
 
 echo "[BBRF] Initialization complete"
